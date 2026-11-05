@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/your-username/jenkins-java-demo.git'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                sh 'javac App.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                sh 'java App'
+            }
+        }
+    }
+}
